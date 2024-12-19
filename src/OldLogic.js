@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import HomePage from './components/Home/HomePage';
-//import AboutMeSection from './AboutMeSection';
+import HomePage from './components/HomePage';
+import AboutMeSection from './AboutMeSection';
 import Navigation from './components/Navbar';
 
 function OldLogic() {
@@ -23,7 +23,7 @@ function OldLogic() {
         <div>
             <Navigation onNavigate={showSection} />
             {activeSection === 'home' && <HomePage />}
-            {/* {activeSection === 'aboutMe' && <AboutMeSection />} */}
+            {activeSection === 'aboutMe' && <AboutMe />}
         </div>
     );
 }

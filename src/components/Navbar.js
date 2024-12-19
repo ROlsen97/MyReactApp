@@ -14,6 +14,7 @@ function NavigationBar() {
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#aboutMe">About Me</Nav.Link>
+            <Nav.Link href="#mySkills">Skills</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Projekter</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

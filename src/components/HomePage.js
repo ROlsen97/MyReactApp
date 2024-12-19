@@ -11,7 +11,7 @@ function HomePage({followLink}){
     ];
 
     return (
-        <body>    
+        <body className='bg-transparent'>    
             <section id="home" className='py-8'>
                 <div className="flex flex-col sm:flex-row p-20 items-center justify-center">
 

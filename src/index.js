@@ -5,6 +5,8 @@ import HomePage from './components/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss'
 import AboutMe from './components/AboutMe';
+import myImage from './billederTilWebApp/HjemmesideBaggrund.png'
+import Skills from './components/Skills';
 
 function App(){
   const [activeSection, setActiveSection] = useState('home');
@@ -17,6 +19,8 @@ function App(){
         const hash = window.location.hash.replace('#', '');
         if (hash === 'aboutMe') {
             showSection('aboutMe');
+        } else if (hash === 'skills') {
+            showSection('skills');
         } else {
             showSection('home');
         }
@@ -25,8 +29,12 @@ function App(){
   return (
     <>
       <NavigationBar/>
-      <HomePage />
-      <AboutMe/>
+      <div className={'min-h-screen bg-cover bg-center'} 
+          style={{backgroundImage: `url(${myImage})`}}>
+        <HomePage />
+        <AboutMe/>
+        <Skills/>
+      </div>
     </>
   )
 }

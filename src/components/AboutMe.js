@@ -3,7 +3,7 @@ import rubenpaagroenland from '../billederTilWebApp/RubenPåGlatIsPng.png'
 
 function AboutMe() {
     return (      
-        <section id="aboutMe" className="py-8">
+        <section id="aboutMe" className="py-14">
            <div className="flex flex-col md:flex-row p-7">
                <div className="block mx-auto w-[30%]">
                    <img

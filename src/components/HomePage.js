@@ -11,13 +11,13 @@ function HomePage({followLink}){
     ];
 
     return (
-        <body className='bg-transparent'>    
+        <body className='bg-transparent p-14'>    
             <section id="home" className='py-8'>
                 <div className="flex flex-col sm:flex-row p-20 items-center justify-center">
 
                     <div className="sm:w-full md:w-7/12 p-7 text-center">
                         <h1 className="text-4xl sm:text-6xl font-bold">Velkommen</h1>
-                        <h2 className="text-xl sm:text-xl font-semibold">til rubens hjemmeside</h2>
+                        <h2 className="text-xl sm:text-xl font-semibold">til Rubens hjemmeside</h2>
                     </div>
 
                     <div className="md:w-5/12">

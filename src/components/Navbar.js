@@ -8,21 +8,22 @@ function NavigationBar() {
     const handleNavigation = (section) => {
         const element = document.getElementById(section);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            window.scrollBy(0, -90); // Juster denne værdi afhængigt af højden på din navigation bar
-        }
+          const yOffset = -90; // Juster denne værdi afhængigt af højden på din navigation bar
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     };
 
     return (
       <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
       <Container>
-        <Navbar.Brand href="#home" onClick={() => handleNavigation('home')}>RUTech</Navbar.Brand>
+        <Navbar.Brand href="#" onClick={() => handleNavigation('')}>RUTech</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" onClick={() => handleNavigation('home')}>Home</Nav.Link>
-            <Nav.Link href="#aboutMe" onClick={() => handleNavigation('aboutMe')}>About Me</Nav.Link>
-            <Nav.Link href="#mySkills" onClick={() => handleNavigation('mySkills')}>Skills</Nav.Link>
+            <Nav.Link onClick={() => handleNavigation('home')}>Home</Nav.Link>
+            <Nav.Link onClick={() => handleNavigation('aboutMe')}>About Me</Nav.Link>
+            <Nav.Link onClick={() => handleNavigation('mySkills')}>Skills</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Projekter</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

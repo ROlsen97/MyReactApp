@@ -5,7 +5,7 @@ function SkillCard({ title, description }) {
 
     return (
         <div 
-            className={`flip-card min-w-80 min-h-80 mx-auto cursor-pointer relative ${isFlipped ? 'flipped' : ''}`}
+            className={`flip-card min-w-70 min-h-70 mx-auto cursor-pointer relative ${isFlipped ? 'flipped' : ''}`}
             onClick={() => setIsFlipped(!isFlipped)}
         >
             <div className="flip-card-inner h-full min-h-[200px] min-w-[200px]">
@@ -27,10 +27,10 @@ function SkillCard({ title, description }) {
 
 function Skills() {
     return (
-        <section id="mySkills" className="py-20 bg-transparent">
-            <div className="max-w-6xl mx-auto p-5">
-                <h2 className="text-3xl font-bold text-center mb-6">Mine Færdigheder</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section id="mySkills" className="bg-transparent">
+            <div className="max-w-6xl mx-auto p-3">
+                <h4 className="text-xl font-bold text-center mb-2">Mine Færdigheder</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <SkillCard
                         title="C#/DotNet"
                         description="Erfaring med C# og .NET framework til at bygge robuste applikationer."

@@ -33,19 +33,23 @@ function Skills() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <SkillCard
                         title="C#/DotNet"
-                        description="Erfaring med C# og .NET framework til at bygge robuste applikationer."
+                        description="Erfaring med udvikling af robuste og skalerbare løsninger ved hjælp af C# og 
+                        .NET, herunder implementering af Clean Architecture og arbejdet med backend-systemer."
                     />
                     <SkillCard
                         title="Kotlin/Compose"
-                        description="Udvikling af moderne Android apps med Kotlin og Jetpack Compose."
+                        description="Erfaring med udvikling af Android-applikationer ved hjælp af Kotlin og Compose, 
+                        herunder integration af funktioner som countdown-timere og systemoptimering."
                     />
                     <SkillCard
                         title="React/TypeScript"
-                        description="Bygning af interaktive webinterfaces med React og TypeScript."
+                        description="Erfaring med frontend-udvikling i React og TypeScript, 
+                        herunder udvikling af dynamiske webapplikationer og forbedring af brugeroplevelse."
                     />
                     <SkillCard
                         title="CyberSecurity"
-                        description="Solid forståelse af cybersecurity principper og praksisser."
+                        description="Grundlæggende viden om cybersikkerhed, 
+                        herunder beskyttelse af data og implementering af sikre systemer, samt erfaring med sikker kodeudvikling og testmetoder."
                     />
                 </div>
             </div>

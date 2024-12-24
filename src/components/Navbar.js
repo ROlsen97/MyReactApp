@@ -21,20 +21,15 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={() => handleNavigation('home')}>Home</Nav.Link>
-            <Nav.Link onClick={() => handleNavigation('aboutMe')}>About Me</Nav.Link>
-            <Nav.Link onClick={() => handleNavigation('mySkills')}>Skills</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Projekter</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
+            <Nav.Link onClick={() => handleNavigation('home')}>Hjem</Nav.Link>
+            <Nav.Link onClick={() => handleNavigation('aboutMe')}>Om mig</Nav.Link>
+            <Nav.Link onClick={() => handleNavigation('mySkills')}>Færdigheder</Nav.Link>
+            <NavDropdown title="Projekter" id="basic-nav-dropdown">
+              <NavDropdown.Item onClick={() => handleNavigation("RAT")}>Undersøgelse af Remote Access Trojans</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleNavigation("TimeME")}>Udarbejdelse af tidsregistreringssystem</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleNavigation("safeliiProject")}>Compose / Kotlin / Google maps / Rutevejledning </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleNavigation("homeProject")}>React / TypeScript / Denne side</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

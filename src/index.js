@@ -7,6 +7,10 @@ import './App.scss'
 import AboutMe from './components/AboutMe';
 import myImage from './billederTilWebApp/HjemmesideBaggrund.png'
 import Skills from './components/Skills';
+import SafeliiProject from './ComposeAndKotlin/SafeliiProject';
+import TimeME from './Tidsregistreringssystem/TimeManagementSystem'
+import RAT from './RemoteAccessTrojans/RAT';
+import HomeProject from './ReactAndTypeScript/ReactAndTypeScript';
 
 function App(){
   const [activeSection, setActiveSection] = useState('home');
@@ -34,6 +38,10 @@ function App(){
         <HomePage />
         <AboutMe/>
         <Skills/>
+        <RAT/>
+        <TimeME/>
+        <SafeliiProject/>
+        <HomeProject/>
       </div>
     </>
   )

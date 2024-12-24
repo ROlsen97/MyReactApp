@@ -5,7 +5,7 @@ import pythonpng from '../billederTilWebApp/Python.png';
 
 function RAT() {
     return (
-        <section id="RAT" className="">
+        <section id="RAT" className="p-14">
             <div className="flex flex-col md:flex-row">
                 <div className="p-4 md:w-5/12">
                     <div className="flex justify-end">    

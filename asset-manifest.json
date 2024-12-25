@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6cdbda7.css",
-    "main.js": "/static/js/main.4c004dcf.js",
-    "static/media/RubenPåGlatIsPng.png": "/static/media/RubenPåGlatIsPng.8cd4cf8c4ebf4a937b5c.png",
-    "static/media/HjemmesideBaggrund.png": "/static/media/HjemmesideBaggrund.8df33233e3c6153309ea.png",
-    "static/media/mig.png": "/static/media/mig.fd902bc990ed60512fa3.png",
-    "static/media/React-icon.png": "/static/media/React-icon.9125cb2feb0dd14a7ffb.png",
-    "static/media/KaliLinux.png": "/static/media/KaliLinux.2b0a2ae60d0f0987f682.png",
-    "static/media/newSvelteLogo.png": "/static/media/newSvelteLogo.7cc0bc5a6c6d0fabe590.png",
-    "static/media/googleLogo.png": "/static/media/googleLogo.7bd62f7a286dd11c461a.png",
-    "static/media/NET-Framework-Logo.png": "/static/media/NET-Framework-Logo.87384842659952c2f472.png",
-    "static/media/JetPackComposeLogo.png": "/static/media/JetPackComposeLogo.c5f0ebf8956030880191.png",
-    "static/media/TailWindLogo.png": "/static/media/TailWindLogo.edce8f8c36c89e38e77d.png",
-    "index.html": "/index.html",
-    "main.e6cdbda7.css.map": "/static/css/main.e6cdbda7.css.map",
-    "main.4c004dcf.js.map": "/static/js/main.4c004dcf.js.map"
+    "main.css": "/MyReactApp/static/css/main.e6cdbda7.css",
+    "main.js": "/MyReactApp/static/js/main.8c17cb0e.js",
+    "static/media/RubenPåGlatIsPng.png": "/MyReactApp/static/media/RubenPåGlatIsPng.8cd4cf8c4ebf4a937b5c.png",
+    "static/media/HjemmesideBaggrund.png": "/MyReactApp/static/media/HjemmesideBaggrund.8df33233e3c6153309ea.png",
+    "static/media/mig.png": "/MyReactApp/static/media/mig.fd902bc990ed60512fa3.png",
+    "static/media/React-icon.png": "/MyReactApp/static/media/React-icon.9125cb2feb0dd14a7ffb.png",
+    "static/media/KaliLinux.png": "/MyReactApp/static/media/KaliLinux.2b0a2ae60d0f0987f682.png",
+    "static/media/newSvelteLogo.png": "/MyReactApp/static/media/newSvelteLogo.7cc0bc5a6c6d0fabe590.png",
+    "static/media/googleLogo.png": "/MyReactApp/static/media/googleLogo.7bd62f7a286dd11c461a.png",
+    "static/media/NET-Framework-Logo.png": "/MyReactApp/static/media/NET-Framework-Logo.87384842659952c2f472.png",
+    "static/media/JetPackComposeLogo.png": "/MyReactApp/static/media/JetPackComposeLogo.c5f0ebf8956030880191.png",
+    "static/media/TailWindLogo.png": "/MyReactApp/static/media/TailWindLogo.edce8f8c36c89e38e77d.png",
+    "index.html": "/MyReactApp/index.html",
+    "main.e6cdbda7.css.map": "/MyReactApp/static/css/main.e6cdbda7.css.map",
+    "main.8c17cb0e.js.map": "/MyReactApp/static/js/main.8c17cb0e.js.map"
   },
   "entrypoints": [
     "static/css/main.e6cdbda7.css",
-    "static/js/main.4c004dcf.js"
+    "static/js/main.8c17cb0e.js"
   ]
 }

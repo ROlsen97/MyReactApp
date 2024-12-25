@@ -2,7 +2,7 @@ import React from 'react';
 
 function SideImages({ image1, image2, alt1, alt2 }) {
     return (
-        <div className="p-4 md:w-5/12">
+        <div className="flex flex-col justify-center w-full p-4 md:justify-center">
             <div className="flex justify-end">
                 <img
                     className="flex rounded-full aspect-[1/1] max-w-[300px] w-1/2 shadow-md"

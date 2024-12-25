@@ -83,22 +83,26 @@ function ProjectGallery() {
     const currentProject = projects[currentProjectIndex];
 
     return (
-        <section className="p-14" id="projects">
+        <section className="p-0 md:p-0 sm:p-0" id="projects">
             <div className="flex justify-between mt-4">
                 <button onClick={handlePrev} className="px-4 py-2 bg-gray-300 rounded">Forrige</button>
                 <button onClick={handleNext} className="px-4 py-2 bg-gray-300 rounded">Næste</button>
             </div>
-            <div className={`flex flex-col md:flex-row items-center transition-transform duration-500 ${isTransitioning ? 'transform -translate-x-full' : ''}`}>
-                <SideImages
-                    image1={currentProject.images[0]}
-                    alt1={currentProject.title}
-                    image2={currentProject.images[1]}
-                    alt2={currentProject.title}
-                />
-                <ProjectText
-                    title={currentProject.title}
-                    paragraphs={currentProject.paragraphs}
-                />
+            <div className={`flex w-full flex-col md:flex-row items-center transition-transform duration-500 ${isTransitioning ? 'transform -translate-x-full' : ''}`}>
+                <div className="flex justify-center w-full md:w-5/12">    
+                    <SideImages
+                        image1={currentProject.images[0]}
+                        alt1={currentProject.title}
+                        image2={currentProject.images[1]}
+                        alt2={currentProject.title}
+                    />
+                </div>
+                <div className="flex justify-center w-full p-1 sm:w-full md:p-5 sm:p-0 md:w-7/12">    
+                    <ProjectText
+                        title={currentProject.title}
+                        paragraphs={currentProject.paragraphs}
+                    />
+                </div>
             </div>
         </section>
     );

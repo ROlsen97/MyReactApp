@@ -1,22 +1,21 @@
 import React from 'react';
 import rubenpaagroenland from '../billederTilWebApp/RubenPåGlatIsPng.png'; // Juster stien til dit billede
-//import './AboutMe.scss'; // Importer CSS-filen
 
 function AboutMe() {
     return (
-        <section id="aboutMe" className="bg-transparant p-14 py-20">
-            <div className="flex flex-col md:flex-row">
-                <div className="block mx-auto w-[30%]">
+        <section id="aboutMe" className="py-20 bg-transparant">
+            <div className="flex flex-col items-center p-0 md:p-20 md:flex-row">
+                <div className="flex justify-center w-full p-0 md:p-20 md:w-[30%]">
                     <img
                         className="block rounded-full aspect-[1/1] min-w-60"
                         src={rubenpaagroenland}
                         alt="RubenPaaGroenLand"
                     />
                 </div>
-                <div className="md:w-7/12 p-7 bg-white shadow-lg rounded-lg">
-                    <h1 className="text-3xl font-bold mb-4">Om mig</h1>
-                    <div className="p-4">
-                        <p className="text-lg font-serif leading-relaxed first-letter">
+                <div className="w-full p-0 mt-8 bg-white rounded-lg shadow-lg md:w-7/12 md:p-7 md:mt-0">
+                    <h1 className="mb-4 text-3xl font-bold">Om mig</h1>
+                    <div className="p-0 md:p-4">
+                        <p className="font-serif text-lg leading-relaxed first-letter">
                             Mit navn er Ruben, og jeg er nyuddannet datamatiker. <br />
                             Jeg har nylig kastet mig ud i at skabe denne hjemmeside, der fungerer som mit online portfolio. <br />
                             Når jeg ikke sidder med næsen i computeren, kan jeg lide at bruge min tid på små projekter,

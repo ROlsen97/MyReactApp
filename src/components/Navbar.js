@@ -24,12 +24,13 @@ function NavigationBar() {
             <Nav.Link onClick={() => handleNavigation('home')}>Hjem</Nav.Link>
             <Nav.Link onClick={() => handleNavigation('aboutMe')}>Om mig</Nav.Link>
             <Nav.Link onClick={() => handleNavigation('mySkills')}>Færdigheder</Nav.Link>
-            <NavDropdown title="Projekter" id="basic-nav-dropdown">
+            <Nav.Link onClick={() => handleNavigation('projects')}>Projekter</Nav.Link>
+            {/* <NavDropdown title="Projekter" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={() => handleNavigation("RAT")}>Undersøgelse af Remote Access Trojans</NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleNavigation("TimeME")}>Udarbejdelse af tidsregistreringssystem</NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleNavigation("safeliiProject")}>Compose / Kotlin / Google maps / Rutevejledning </NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleNavigation("homeProject")}>React / TypeScript / Denne side</NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

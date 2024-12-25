@@ -11,6 +11,7 @@ import SafeliiProject from './ComposeAndKotlin/SafeliiProject';
 import TimeME from './Tidsregistreringssystem/TimeManagementSystem'
 import RAT from './RemoteAccessTrojans/RAT';
 import HomeProject from './ReactAndTypeScript/ReactAndTypeScript';
+import ProjectGallery from './components/projectGallery';
 
 function App(){
   const [activeSection, setActiveSection] = useState('home');
@@ -38,10 +39,7 @@ function App(){
         <HomePage />
         <AboutMe/>
         <Skills/>
-        <RAT/>
-        <TimeME/>
-        <SafeliiProject/>
-        <HomeProject/>
+        <ProjectGallery/>
       </div>
     </>
   )

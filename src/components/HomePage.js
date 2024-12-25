@@ -11,13 +11,13 @@ function HomePage({followLink}){
     ];
 
     return (
-        <body className='bg-transparent py-20'>    
+        <body className='py-20 bg-transparent'>    
             <section id="home" className='py-8'>
-                <div className="flex flex-col sm:flex-row p-20 items-center justify-center">
+                <div className="flex flex-col items-center justify-center p-20 sm:flex-row">
 
-                    <div className="sm:w-full md:w-7/12 p-7 text-center">
-                        <h1 className="text-4xl sm:text-6xl font-bold">Velkommen</h1>
-                        <h2 className="text-xl sm:text-xl font-semibold">til Rubens hjemmeside</h2>
+                    <div className="text-center sm:w-full md:w-7/12 p-7">
+                        <h1 className="text-4xl font-bold sm:text-6xl">Velkommen</h1>
+                        <h2 className="text-xl font-semibold sm:text-xl">til Rubens hjemmeside</h2>
                     </div>
 
                     <div className="md:w-5/12">
@@ -27,11 +27,11 @@ function HomePage({followLink}){
                     </div>
 
                 </div>
-                <div className="w3-container bottomPadding">
+                {/* <div className="w3-container bottomPadding">
                     <div className="w3-cell-row CustomPadding" align="">
                         <ItemList items={itemsToShow}/>
                     </div>
-                </div>
+                </div> */}
             </section>
         </body>
     )

@@ -9,13 +9,13 @@ function SkillCard({ title, description }) {
             onClick={() => setIsFlipped(!isFlipped)}
         >
             <div className="flip-card-inner h-full min-h-[200px] min-w-[200px]">
-                <div className="flip-card-front bg-blue-500 text-white rounded-lg shadow-md flex items-center justify-center p-6 relative">
+                <div className="relative flex items-center justify-center p-6 text-white bg-blue-500 rounded-lg shadow-md flip-card-front">
                     <div className="text-xl font-bold">{title}</div>
-                    <div className="absolute inset-0 flex items-center justify-center bg-blue-500 bg-opacity-75 text-white text-lg font-semibold opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 flex items-center justify-center text-lg font-semibold text-white transition-opacity duration-300 bg-blue-500 bg-opacity-75 opacity-0 hover:opacity-100">
                         Tryk på mig
                     </div>
                 </div>
-                <div className="flip-card-back bg-blue-500 text-white rounded-lg shadow-md flex items-center justify-center p-6">
+                <div className="flex items-center justify-center p-6 text-white bg-blue-500 rounded-lg shadow-md flip-card-back">
                     <div className="p-4 text-center">
                         <p>{description}</p>
                     </div>
@@ -28,9 +28,9 @@ function SkillCard({ title, description }) {
 function Skills() {
     return (
         <section id="mySkills" className="bg-transparent">
-            <div className="max-w-6xl mx-auto p-3">
-                <h4 className="text-xl font-bold text-center mb-2">Mine Færdigheder</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="max-w-6xl p-3 mx-auto">
+                <h4 className="mb-2 text-xl font-bold text-center">Mine Færdigheder</h4>
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <SkillCard
                         title="C#/DotNet"
                         description="Erfaring med udvikling af robuste og skalerbare løsninger ved hjælp af C# og 
@@ -39,7 +39,7 @@ function Skills() {
                     <SkillCard
                         title="Kotlin/Compose"
                         description="Erfaring med udvikling af Android-applikationer ved hjælp af Kotlin og Compose, 
-                        herunder integration af funktioner som countdown-timere og systemoptimering."
+                        herunder integration af google maps samt rutevejledning."
                     />
                     <SkillCard
                         title="React/TypeScript"

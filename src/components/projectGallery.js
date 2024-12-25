@@ -7,6 +7,8 @@ import NetFrameWorkpng from '../billederTilWebApp/NET-Framework-Logo.png';
 import svelteLogo from '../billederTilWebApp/newSvelteLogo.png';
 import jetPackCompose from '../billederTilWebApp/JetPackComposeLogo.png';
 import googleLogo from '../billederTilWebApp/googleLogo.png'
+import reactLogo from '../billederTilWebApp/React-icon.png';
+import tailwindLogo from '../billederTilWebApp/TailWindLogo.png';
 //import safeliiImage1 from '../billederTilWebApp/Safelii1.png';
 //import safeliiImage2 from '../billederTilWebApp/Safelii2.png';
 
@@ -49,28 +51,40 @@ Jeg brugte også Retrofit til at hente data og API-kald, mens live data blev bru
         images: [jetPackCompose, googleLogo]
     },{
         title: "React / TypeScript / Denne side",
-        paragraphs: ["indsæt tekst", "indsæt tekst"],
-        images: [pythonpng, kalipng]
+        paragraphs: ["Jeg har udarbejdet en Single Page Application (SPA) ved hjælp af React og Tailwind CSS for at dykke dybere ned i frontend-udvikling og moderne webteknologier. Applikationen er designet med en komponentbaseret arkitektur, hvor hver del af brugergrænsefladen er opdelt i genanvendelige komponenter. Dette designvalg gør det ikke kun muligt at genbruge elementer i forskellige kontekster, men reducerer også redundans i koden og forbedrer udviklingstiden. Jeg valgte Tailwind CSS til at sikre en responsiv og moderne brugergrænseflade med fokus på hurtig udvikling og konsekvent styling. Ved at kombinere Tailwind med React's state management kunne jeg opbygge dynamiske og interaktive komponenter, der reagerer i realtid på brugerens input.", 
+            "Derudover har jeg integreret routing ved hjælp af React Router, hvilket muliggør en problemfri navigation mellem forskellige dele af applikationen uden at genindlæse siden. Dette har forbedret brugeroplevelsen betydeligt og reduceret belastningen på serveren. For at sikre skalerbarhed har jeg implementeret kontekstbaseret state management ved hjælp af React Context API, hvilket gør det nemt at dele data mellem komponenter uden at skulle passere dem eksplicit gennem props. Denne tilgang forbedrer vedligeholdelsen af applikationen og gør det nemt at tilføje nye funktioner i fremtiden. Projektet har givet mig en dybere forståelse for best practices inden for frontend-udvikling, herunder komponentdesign, styling, state management og optimering af brugeroplevelsen."],
+        images: [reactLogo, tailwindLogo]
     },
     // Tilføj flere projekter her
 ];
 
 function ProjectGallery() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    
     const handleNext = () => {
-        setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % projects.length);
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % projects.length);
+            setIsTransitioning(false);
+        }, 500); // Match transition duration
     };
 
     const handlePrev = () => {
-        setCurrentProjectIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentProjectIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+            setIsTransitioning(false);
+        }, 500); // Match transition duration
     };
 
     const currentProject = projects[currentProjectIndex];
 
     return (
         <section className="p-14" id="projects">
-            <div className="flex flex-col items-center md:flex-row">
+            <div className={`flex flex-col md:flex-row items-center transition-transform duration-500 ${isTransitioning ? 'transform -translate-x-full' : ''}`}>
                 <SideImages
                     image1={currentProject.images[0]}
                     alt1={currentProject.title}

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import NavigationBar from './components/Navbar';
 import HomePage from './components/HomePage';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss'
 import AboutMe from './components/AboutMe';
 import myImage from './billederTilWebApp/HjemmesideBaggrund.png'
@@ -37,9 +36,13 @@ function App(){
       <div className={'min-h-screen bg-cover bg-center'} 
           style={{backgroundImage: `url(${myImage})`}}>
         <HomePage />
-        <AboutMe/>
+        <div className=''>
+          <AboutMe/>
+        </div>
         <Skills/>
-        <ProjectGallery/>
+        <div className='p-0 md:p-8'>
+          <ProjectGallery/>
+        </div>
       </div>
     </>
   )

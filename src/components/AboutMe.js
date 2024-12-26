@@ -3,16 +3,16 @@ import rubenpaagroenland from '../billederTilWebApp/RubenPåGlatIsPng.png'; // J
 
 function AboutMe() {
     return (
-        <section id="aboutMe" className="py-20 bg-transparant">
+        <section id="aboutMe" className="py-20 bg-transparant md:p-4">
             <div className="flex flex-col items-center p-0 md:p-20 md:flex-row">
-                <div className="flex justify-center w-full p-0 md:p-20 md:w-[30%]">
+                <div className="flex justify-center w-full md:w-[40%]">
                     <img
-                        className="block rounded-full aspect-[1/1] min-w-60"
+                        className="block rounded-full aspect-[1/1] w-[70%] md:w-[90%] md:p-0"
                         src={rubenpaagroenland}
                         alt="RubenPaaGroenLand"
                     />
                 </div>
-                <div className="w-full p-0 mt-8 bg-white rounded-lg shadow-lg md:w-7/12 md:p-7 md:mt-0">
+                <div className="w-full p-3 mx-auto bg-white rounded-lg shadow-lg md:w-7/12 md:mt-0">
                     <h1 className="mb-4 text-3xl font-bold">Om mig</h1>
                     <div className="p-0 md:p-4">
                         <p className="font-serif text-lg leading-relaxed first-letter">

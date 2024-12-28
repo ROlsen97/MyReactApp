@@ -6,11 +6,8 @@ import './App.scss'
 import AboutMe from './components/AboutMe';
 import myImage from './billederTilWebApp/HjemmesideBaggrund.png'
 import Skills from './components/Skills';
-import SafeliiProject from './ComposeAndKotlin/SafeliiProject';
-import TimeME from './Tidsregistreringssystem/TimeManagementSystem'
-import RAT from './RemoteAccessTrojans/RAT';
-import HomeProject from './ReactAndTypeScript/ReactAndTypeScript';
 import ProjectGallery from './components/projectGallery';
+import ContactFormular from './components/ContactMe/ContactFormular';
 
 function App(){
   const [activeSection, setActiveSection] = useState('home');
@@ -43,6 +40,7 @@ function App(){
         <div className='p-0 md:p-8'>
           <ProjectGallery/>
         </div>
+        <ContactFormular/>
       </div>
     </>
   )

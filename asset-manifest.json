@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MyReactApp/static/css/main.8f9dce38.css",
-    "main.js": "/MyReactApp/static/js/main.9cd92a0b.js",
+    "main.css": "/MyReactApp/static/css/main.592a64fe.css",
+    "main.js": "/MyReactApp/static/js/main.9a9bc92f.js",
     "static/media/RubenPåGlatIsPng.png": "/MyReactApp/static/media/RubenPåGlatIsPng.8cd4cf8c4ebf4a937b5c.png",
     "static/media/HjemmesideBaggrund.png": "/MyReactApp/static/media/HjemmesideBaggrund.8df33233e3c6153309ea.png",
     "static/media/mig.png": "/MyReactApp/static/media/mig.fd902bc990ed60512fa3.png",
@@ -13,11 +13,11 @@
     "static/media/JetPackComposeLogo.png": "/MyReactApp/static/media/JetPackComposeLogo.c5f0ebf8956030880191.png",
     "static/media/TailWindLogo.png": "/MyReactApp/static/media/TailWindLogo.edce8f8c36c89e38e77d.png",
     "index.html": "/MyReactApp/index.html",
-    "main.8f9dce38.css.map": "/MyReactApp/static/css/main.8f9dce38.css.map",
-    "main.9cd92a0b.js.map": "/MyReactApp/static/js/main.9cd92a0b.js.map"
+    "main.592a64fe.css.map": "/MyReactApp/static/css/main.592a64fe.css.map",
+    "main.9a9bc92f.js.map": "/MyReactApp/static/js/main.9a9bc92f.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f9dce38.css",
-    "static/js/main.9cd92a0b.js"
+    "static/css/main.592a64fe.css",
+    "static/js/main.9a9bc92f.js"
   ]
 }

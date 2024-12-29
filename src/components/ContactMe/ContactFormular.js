@@ -36,7 +36,7 @@ function ContactFormular() {
         e.preventDefault();
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
-            fetch('/send-email', {
+            fetch(`${process.env.REACT_APP_API_URL}/send-email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -45,10 +45,11 @@ function ContactFormular() {
             })
             .then((response) => {
                 if (!response.ok) {
+                    console.log(response);
                     throw new Error('Network response was not ok');
                 }
                 console.log(response);
-                return response.json();
+                return response;
             })
             .then((data) => {
                 console.log('SUCCESS', data);

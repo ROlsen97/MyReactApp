@@ -69,7 +69,7 @@ function ContactFormular() {
             <div className="max-w-md p-4 mx-auto bg-blue-500 rounded-lg shadow-md">
                 <h2 className="mb-4 text-2xl font-bold text-white">Kontakt mig</h2>
                 {isSubmitted ? (
-                    <p className="text-green-500">Tak for din besked! Jeg vender tilbage hurtigst muligt.</p>
+                    <p className="p-1 font-bold text-white">Tak for din besked! Jeg vender tilbage hurtigst muligt.</p>
                 ) : (
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">

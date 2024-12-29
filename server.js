@@ -9,7 +9,7 @@ const cors = require('cors');
 // Angiv de oprindelser, der skal have adgang
 const allowedOrigins = [
     'http://localhost:3000',              // Lokal udviklingsapp
-    'https://rolsen97.github.io/MyReactApp' // Deployet app
+    'https://rolsen97.github.io' // Deployet app
 ];
 
 const corsOptions = {

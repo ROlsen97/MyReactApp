@@ -88,6 +88,7 @@ function ProjectGallery() {
                 <button onClick={handlePrev} className="px-4 py-2 bg-gray-300 rounded">Forrige</button>
                 <button onClick={handleNext} className="px-4 py-2 bg-gray-300 rounded">Næste</button>
             </div>
+                <h3 className='flex justify-center'>Projekter</h3>
             <div className={`flex w-full p-0 flex-col md:flex-row items-center transition-transform duration-500 ${isTransitioning ? 'transform -translate-x-full' : ''}`}>
                 <div className="flex justify-center w-full md:w-5/12">    
                     <SideImages

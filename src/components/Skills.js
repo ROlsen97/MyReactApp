@@ -29,7 +29,7 @@ function Skills() {
     return (
         <section id="mySkills" className="bg-transparent md:p-7">
             <div className="max-w-6xl p-3 mx-auto">
-                <h4 className="mb-2 text-xl font-bold text-center">Mine Færdigheder</h4>
+                <h2 className="mb-2 text-center">Mine Færdigheder</h2>
                 <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
                     <SkillCard
                         title="C#/DotNet"

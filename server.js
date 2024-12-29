@@ -30,7 +30,7 @@ app.use(cors(corsOptions));
 // Rate limiter for at forhindre spam
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutter
-    max: 100, // Maksimalt 100 forespørgsler per IP per vindue
+    max: 2, // Maksimalt 100 forespørgsler per IP per vindue
 });
 
 app.use(limiter);

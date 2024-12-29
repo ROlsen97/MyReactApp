@@ -22,6 +22,8 @@ function App(){
             showSection('aboutMe');
         } else if (hash === 'skills') {
             showSection('skills');
+        } else if (hash === 'contact') {
+            showSection('contact');
         } else {
             showSection('home');
         }
@@ -33,14 +35,18 @@ function App(){
       <div className={'min-h-screen bg-cover bg-center'} 
           style={{backgroundImage: `url(${myImage})`}}>
         <HomePage />
-        <div className=''>
+        <div className='py-20'>
           <AboutMe/>
         </div>
-        <Skills/>
-        <div className='p-0 md:p-8'>
+        <div className='py-20'>  
+          <Skills/>
+        </div>
+        <div className='p-0 md:p-12'>
           <ProjectGallery/>
         </div>
-        <ContactFormular/>
+        <div className='py-5'>
+          <ContactFormular/>
+        </div>
       </div>
     </>
   )

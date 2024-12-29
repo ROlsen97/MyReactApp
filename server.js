@@ -34,7 +34,7 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-console.log("Mailjet secret: " + process.env.MAILJET_API_SECRET);
+//console.log("Mailjet secret: " + process.env.MAILJET_API_SECRET);
 
 // Initialiser Mailjet-klienten
 const mailjet = new Mailjet({
@@ -78,7 +78,7 @@ app.post('/send-email', (req, res) => {
             res.status(200).json({ message: 'Email sent successfully', data: result.body });
         })
         .catch(err => {
-            console.error('Error sending email:', err);
+            //console.error('Error sending email:', err);
             res.status(500).json({ error: 'Failed to send email', details: err.toString() });
         });
 });

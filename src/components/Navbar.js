@@ -25,6 +25,7 @@ function NavigationBar() {
             <Nav.Link onClick={() => handleNavigation('aboutMe')}>Om mig</Nav.Link>
             <Nav.Link onClick={() => handleNavigation('mySkills')}>Færdigheder</Nav.Link>
             <Nav.Link onClick={() => handleNavigation('projects')}>Projekter</Nav.Link>
+            <Nav.Link onClick={() => handleNavigation('contact')}>Kontakt</Nav.Link>
             {/* <NavDropdown title="Projekter" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={() => handleNavigation("RAT")}>Undersøgelse af Remote Access Trojans</NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleNavigation("TimeME")}>Udarbejdelse af tidsregistreringssystem</NavDropdown.Item>

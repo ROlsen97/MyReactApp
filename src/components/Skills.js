@@ -5,10 +5,10 @@ function SkillCard({ title, description, hint }) {
 
     return (
         <div 
-            className={`flip-card min-h-[300px] min-w-[300px] mx-auto cursor-pointer relative ${isFlipped ? 'flipped' : ''}`}
+            className={`flip-card m-2 w-full max-w-sm min-h-[300px] mx-auto cursor-pointer relative ${isFlipped ? 'flipped' : ''}`}
             onClick={() => setIsFlipped(!isFlipped)}
         >
-            <div className="flip-card-inner h-full min-h-[300px] min-w-[300px]">
+            <div className="flip-card-inner h-full min-h-[300px]">
                 <div className="relative flex flex-col items-center justify-center gap-1 p-4 text-white bg-blue-500 rounded-lg shadow-md flip-card-front">
                     <div className="text-xl font-bold mb-1">{title}</div>
                     <div className="text-sm font-semibold">{hint}</div>
@@ -28,7 +28,7 @@ function Skills() {
         <section id="mySkills" className="bg-transparent md:p-7">
             <div className="max-w-6xl p-3 mx-auto">
                 <h2 className="mb-2 text-center">Mine Færdigheder</h2>
-                <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
                     <SkillCard
                         title="C#/DotNet"
                         hint="Klik for at se mere"
@@ -51,11 +51,12 @@ function Skills() {
                         
                     />
                     <SkillCard
-                        title="CyberSecurity"
+                        title="RAT Udvikling i Python"
                         hint="Klik for at se mere"
-                        description="Grundlæggende viden om cybersikkerhed, 
-                        herunder beskyttelse af data og implementering af sikre systemer, samt erfaring med sikker kodeudvikling og testmetoder."
+                        description="Udvikling af en Remote Access Trojan (RAT) i Python,
+                        som inkluderer en backdoor, der udnytter billedmetadata til at opnå fjernadgang."
                     />
+                    
                 </div>
             </div>
         </section>

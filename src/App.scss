@@ -6,10 +6,9 @@
 
 .flip-card {
   perspective: 1000px;
-  width: 20vw;
-  height: 20vw;
+  /* Width/height removed to allow responsive sizing from Tailwind classes
+     (use Tailwind's w-full / max-w-* and min-h-* on the component). */
   position: relative;
-  margin: 2vw; /* Tilføj margin for at undgå kollidering */
 }
 
 .flip-card-inner {

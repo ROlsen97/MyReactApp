@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SkillCard({ title, description }) {
+function SkillCard({ title, description, hint }) {
     const [isFlipped, setIsFlipped] = useState(false);
 
     return (
@@ -9,11 +9,9 @@ function SkillCard({ title, description }) {
             onClick={() => setIsFlipped(!isFlipped)}
         >
             <div className="flip-card-inner h-full min-h-[300px] min-w-[300px]">
-                <div className="relative flex items-center justify-center text-white bg-blue-500 rounded-lg shadow-md flip-card-front">
-                    <div className="text-xl font-bold">{title}</div>
-                    <div className="absolute inset-0 flex items-center justify-center text-lg font-semibold text-white transition-opacity duration-300 bg-blue-500 bg-opacity-75 opacity-0 hover:opacity-100">
-                        Tryk på mig
-                    </div>
+                <div className="relative flex flex-col items-center justify-center gap-1 p-4 text-white bg-blue-500 rounded-lg shadow-md flip-card-front">
+                    <div className="text-xl font-bold mb-1">{title}</div>
+                    <div className="text-sm font-semibold">{hint}</div>
                 </div>
                 <div className="flex items-center justify-center p-6 text-white bg-blue-500 rounded-lg shadow-md flip-card-back">
                     <div className="p-4 text-center">
@@ -33,24 +31,28 @@ function Skills() {
                 <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
                     <SkillCard
                         title="C#/DotNet"
+                        hint="Klik for at se mere"
                         description="Erfaring med udvikling af robuste og skalerbare løsninger ved hjælp af C# og 
                         .NET, herunder implementering af Clean Architecture og arbejdet med backend-systemer."
                         
                     />
                     <SkillCard
                         title="Kotlin/Compose"
+                        hint="Klik for at se mere"
                         description="Erfaring med udvikling af Android-applikationer ved hjælp af Kotlin og Compose, 
                         herunder integration af google maps samt rutevejledning."
                         
                     />
                     <SkillCard
                         title="React/TypeScript"
+                        hint="Klik for at se mere"
                         description="Erfaring med frontend-udvikling i React og TypeScript, 
                         herunder udvikling af dynamiske webapplikationer og forbedring af brugeroplevelse."
                         
                     />
                     <SkillCard
                         title="CyberSecurity"
+                        hint="Klik for at se mere"
                         description="Grundlæggende viden om cybersikkerhed, 
                         herunder beskyttelse af data og implementering af sikre systemer, samt erfaring med sikker kodeudvikling og testmetoder."
                     />

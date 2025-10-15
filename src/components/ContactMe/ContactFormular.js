@@ -81,7 +81,7 @@ function ContactFormular() {
                                 onChange={handleChange}
                                 className="w-full p-2 mt-1 border border-gray-300 rounded"
                             />
-                            {formErrors.name && <p className="text-sm text-red-500">{formErrors.name}</p>}
+                            {formErrors.name && <p className="text-sm text-red-500 bg-white rounded">{formErrors.name}</p>}
                         </div>
                         <div className="mb-4">
                             <label className="block text-white">Email</label>
@@ -92,7 +92,7 @@ function ContactFormular() {
                                 onChange={handleChange}
                                 className="w-full p-2 mt-1 border border-gray-300 rounded"
                             />
-                            {formErrors.email && <p className="text-sm text-red-500">{formErrors.email}</p>}
+                            {formErrors.email && <p className="text-sm text-red-500 bg-white rounded">{formErrors.email}</p>}
                         </div>
                         <div className="mb-4">
                             <label className="block text-white">Emne</label>
@@ -103,7 +103,7 @@ function ContactFormular() {
                                 onChange={handleChange}
                                 className="w-full p-2 mt-1 border border-gray-300 rounded"
                             />
-                            {formErrors.subject && <p className="text-sm text-red-500">{formErrors.subject}</p>}
+                            {formErrors.subject && <p className="text-sm text-red-500 bg-white rounded">{formErrors.subject}</p>}
                         </div>
                         <div className="mb-4">
                             <label className="block text-white">Besked</label>
@@ -114,11 +114,11 @@ function ContactFormular() {
                                 className="w-full p-2 mt-1 border border-gray-300 rounded"
                                 rows="4"
                             ></textarea>
-                            {formErrors.message && <p className="text-sm text-red-500">{formErrors.message}</p>}
+                            {formErrors.message && <p className="text-sm text-red-500 bg-white rounded">{formErrors.message}</p>}
                         </div>
                         <button
                             type="submit"
-                            className="w-full p-2 text-white bg-blue-500 rounded hover:bg-green-500"
+                            className="w-full p-2 text-white bg-green-500 rounded click:bg-green-500"
                         >
                             Send
                         </button>

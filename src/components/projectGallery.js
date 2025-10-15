@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProjectText from '../components/ui-components/ProjectText';
 import SideImages from '../components/ui-components/sideImages';
-import kalipng from '../billederTilWebApp/KaliLinux.png';
+import kalipng from '../billederTilWebApp/klai.png';
 import pythonpng from '../billederTilWebApp/Python.png';
 import NetFrameWorkpng from '../billederTilWebApp/NET-Framework-Logo.png';
 import svelteLogo from '../billederTilWebApp/newSvelteLogo.png';
@@ -84,10 +84,6 @@ function ProjectGallery() {
 
     return (
         <section className="p-0 md:p-5" id="projects">
-            <div className="flex justify-between mt-4">
-                <button onClick={handlePrev} className="px-4 py-2 bg-gray-300 rounded">Forrige</button>
-                <button onClick={handleNext} className="px-4 py-2 bg-gray-300 rounded">Næste</button>
-            </div>
                 <h3 className='flex justify-center'>Projekter</h3>
             <div className={`flex w-full p-0 flex-col md:flex-row items-center transition-transform duration-500 ${isTransitioning ? 'transform -translate-x-full' : ''}`}>
                 <div className="flex justify-center w-full md:w-5/12">    
@@ -104,6 +100,20 @@ function ProjectGallery() {
                         paragraphs={currentProject.paragraphs}
                     />
                 </div>
+            </div>
+            <div className="flex justify-between mt-4 px-3">
+                <button
+                    onClick={handlePrev}
+                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 active:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-150"
+                >
+                    Forrige
+                </button>
+                <button
+                    onClick={handleNext}
+                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 active:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-150"
+                >
+                    Næste
+                </button>
             </div>
         </section>
     );

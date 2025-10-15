@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/MyReactApp/static/css/main.eb26fd83.css",
-    "main.js": "/MyReactApp/static/js/main.b4b8c0a3.js",
+    "main.css": "/MyReactApp/static/css/main.ccd081b2.css",
+    "main.js": "/MyReactApp/static/js/main.c9823779.js",
     "static/media/RubenPåGlatIsPng.png": "/MyReactApp/static/media/RubenPåGlatIsPng.8cd4cf8c4ebf4a937b5c.png",
     "static/media/HjemmesideBaggrund.png": "/MyReactApp/static/media/HjemmesideBaggrund.8df33233e3c6153309ea.png",
     "static/media/mig.png": "/MyReactApp/static/media/mig.fd902bc990ed60512fa3.png",
     "static/media/React-icon.png": "/MyReactApp/static/media/React-icon.9125cb2feb0dd14a7ffb.png",
-    "static/media/klai.png": "/MyReactApp/static/media/klai.4bd9cfaadd60df273101.png",
+    "static/media/KaliLinux.png": "/MyReactApp/static/media/KaliLinux.2b0a2ae60d0f0987f682.png",
     "static/media/newSvelteLogo.png": "/MyReactApp/static/media/newSvelteLogo.7cc0bc5a6c6d0fabe590.png",
     "static/media/googleLogo.png": "/MyReactApp/static/media/googleLogo.7bd62f7a286dd11c461a.png",
     "static/media/NET-Framework-Logo.png": "/MyReactApp/static/media/NET-Framework-Logo.87384842659952c2f472.png",
     "static/media/JetPackComposeLogo.png": "/MyReactApp/static/media/JetPackComposeLogo.c5f0ebf8956030880191.png",
     "static/media/TailWindLogo.png": "/MyReactApp/static/media/TailWindLogo.edce8f8c36c89e38e77d.png",
     "index.html": "/MyReactApp/index.html",
-    "main.eb26fd83.css.map": "/MyReactApp/static/css/main.eb26fd83.css.map",
-    "main.b4b8c0a3.js.map": "/MyReactApp/static/js/main.b4b8c0a3.js.map"
+    "main.ccd081b2.css.map": "/MyReactApp/static/css/main.ccd081b2.css.map",
+    "main.c9823779.js.map": "/MyReactApp/static/js/main.c9823779.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb26fd83.css",
-    "static/js/main.b4b8c0a3.js"
+    "static/css/main.ccd081b2.css",
+    "static/js/main.c9823779.js"
   ]
 }

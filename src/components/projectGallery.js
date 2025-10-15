@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import ProjectText from '../components/ui-components/ProjectText';
 import SideImages from '../components/ui-components/sideImages';
-import kalipng from '../billederTilWebApp/klai.png';
+import kalipng from '../billederTilWebApp/KaliLinux.png';
 import pythonpng from '../billederTilWebApp/Python.png';
 import NetFrameWorkpng from '../billederTilWebApp/NET-Framework-Logo.png';
 import svelteLogo from '../billederTilWebApp/newSvelteLogo.png';
@@ -9,8 +9,6 @@ import jetPackCompose from '../billederTilWebApp/JetPackComposeLogo.png';
 import googleLogo from '../billederTilWebApp/googleLogo.png'
 import reactLogo from '../billederTilWebApp/React-icon.png';
 import tailwindLogo from '../billederTilWebApp/TailWindLogo.png';
-//import safeliiImage1 from '../billederTilWebApp/Safelii1.png';
-//import safeliiImage2 from '../billederTilWebApp/Safelii2.png';
 
 const projects = [
     {
@@ -60,149 +58,50 @@ Jeg brugte også Retrofit til at hente data og API-kald, mens live data blev bru
 
 function ProjectGallery() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-    const [nextIndex, setNextIndex] = useState(null); // index of panel being animated in
-    const [direction, setDirection] = useState('next');
-    const [animating, setAnimating] = useState(false);
-    const [disableTransition, setDisableTransition] = useState(false);
-    const timerRef = React.useRef(null);
-    const wrapperRef = useRef(null);
-    const currentPanelRef = useRef(null);
-    const nextPanelRef = useRef(null);
-    const [wrapperHeight, setWrapperHeight] = useState('auto');
-
-    const duration = 500; // ms (matches duration-500)
-
-    const startTransition = (targetIndex, dir) => {
-        if (animating) return;
-        setNextIndex(targetIndex);
-        setDirection(dir);
-        // wait for nextIndex to mount offscreen, then trigger animation
-        requestAnimationFrame(() => requestAnimationFrame(() => setAnimating(true)));
-        // finalize after duration
-        if (timerRef.current) clearTimeout(timerRef.current);
-        timerRef.current = setTimeout(() => {
-            // Stop animation first to keep the incoming panel stable when we swap indexes
-            setAnimating(false);
-            // disable transitions briefly so swapping content doesn't animate
-            setDisableTransition(true);
-            setCurrentProjectIndex(targetIndex);
-            setNextIndex(null);
-            // re-enable transitions next frame
-            requestAnimationFrame(() => requestAnimationFrame(() => setDisableTransition(false)));
-            timerRef.current = null;
-        }, duration + 20);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    
+    const handleNext = () => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % projects.length);
+            setIsTransitioning(false);
+        }, 500); // Match transition duration
     };
 
-    const handleNext = () => startTransition((currentProjectIndex + 1) % projects.length, 'next');
-    const handlePrev = () => startTransition((currentProjectIndex - 1 + projects.length) % projects.length, 'prev');
-
-    React.useEffect(() => {
-        return () => {
-            if (timerRef.current) clearTimeout(timerRef.current);
-        };
-    }, []);
-
-    // Measure panel heights and set wrapper height to avoid clipping
-    const measureHeight = () => {
-        // prefer the next panel if mounted (during transition) else current
-        const heights = [];
-        if (currentPanelRef.current) heights.push(currentPanelRef.current.offsetHeight);
-        if (nextPanelRef.current) heights.push(nextPanelRef.current.offsetHeight);
-        if (heights.length === 0) return;
-        const h = Math.max(...heights);
-        setWrapperHeight(h);
+    const handlePrev = () => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentProjectIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+            setIsTransitioning(false);
+        }, 500); // Match transition duration
     };
-
-    useEffect(() => {
-        // measure after render
-        requestAnimationFrame(() => requestAnimationFrame(measureHeight));
-    }, [currentProjectIndex, nextIndex, animating]);
-
-    useEffect(() => {
-        const onResize = () => measureHeight();
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-    }, []);
 
     const currentProject = projects[currentProjectIndex];
-    const upcomingProject = nextIndex !== null ? projects[nextIndex] : null;
-
-    const panelClass = (role) => {
-        // role: 'current' or 'next'
-        if (!animating) {
-            if (role === 'current') return 'translate-x-0';
-            if (role === 'next') return direction === 'next' ? 'translate-x-full' : '-translate-x-full';
-        }
-        // animating true -> apply final positions
-        if (role === 'current') return direction === 'next' ? '-translate-x-full' : 'translate-x-full';
-        return 'translate-x-0';
-    };
 
     return (
         <section className="p-0 md:p-5" id="projects">
-            <h3 className='flex justify-center'>Projekter</h3>
-
-            <div className="relative w-full overflow-hidden" ref={wrapperRef} style={{height: wrapperHeight === 'auto' ? undefined : wrapperHeight}}>
-                <div className="relative w-full min-h-[280px] md:min-h-[800px]">
-                    {/* Current panel */}
-                    <div ref={currentPanelRef} className={`absolute inset-0 ${disableTransition ? 'transition-none' : 'transition-transform duration-500 ease-in-out'} ${panelClass('current')}`}>
-                        <div className="flex w-full p-0 flex-col md:flex-row items-center">
-                            <div className="flex justify-center w-full md:w-5/12">    
-                                <SideImages
-                                    image1={currentProject.images[0]}
-                                    alt1={currentProject.title}
-                                    image2={currentProject.images[1]}
-                                    alt2={currentProject.title}
-                                />
-                            </div>
-                            <div className="flex w-full md:justify-center md:w-7/12 md:p-4">    
-                                <ProjectText
-                                    title={currentProject.title}
-                                    paragraphs={currentProject.paragraphs}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Upcoming panel (mounted during transition) */}
-                    {upcomingProject && (
-                        <div ref={nextPanelRef} className={`absolute inset-0 ${disableTransition ? 'transition-none' : 'transition-transform duration-500 ease-in-out'} ${panelClass('next')}`}>
-                            <div className="flex w-full p-0 flex-col md:flex-row items-center">
-                                <div className="flex justify-center w-full md:w-5/12">    
-                                    <SideImages
-                                        image1={upcomingProject.images[0]}
-                                        alt1={upcomingProject.title}
-                                        image2={upcomingProject.images[1]}
-                                        alt2={upcomingProject.title}
-                                    />
-                                </div>
-                                <div className="flex w-full md:justify-center md:w-7/12 md:p-4">    
-                                    <ProjectText
-                                        title={upcomingProject.title}
-                                        paragraphs={upcomingProject.paragraphs}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                <h3 className='flex justify-center'>Projekter</h3>
+            <div className={`flex w-full p-0 flex-col md:flex-row items-center transition-transform duration-500 ${isTransitioning ? 'transform -translate-x-full' : ''}`}>
+                <div className="flex justify-center w-full md:w-5/12">    
+                    <SideImages
+                        image1={currentProject.images[0]}
+                        alt1={currentProject.title}
+                        image2={currentProject.images[1]}
+                        alt2={currentProject.title}
+                    />
+                </div>
+                <div className="flex w-full md:justify-center md:w-7/12 md:p-4">    
+                    <ProjectText
+                        title={currentProject.title}
+                        paragraphs={currentProject.paragraphs}
+                    />
                 </div>
             </div>
-
             <div className="flex justify-between mt-4 px-3">
-                <button
-                    onClick={handlePrev}
-                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 active:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-150"
-                    disabled={animating}
-                >
-                    Forrige
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 active:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-150"
-                    disabled={animating}
-                >
-                    Næste
-                </button>
+                <button onClick={handlePrev} className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-200 active:bg-gray-400">Forrige</button>
+                <button onClick={handleNext} className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-200 active:bg-gray-400">Næste</button>
             </div>
         </section>
     );

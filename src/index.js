@@ -38,15 +38,15 @@ function App(){
         <div className='py-20'>
           <AboutMe/>
         </div>
-        <div className='py-20'>  
-          <Skills/>
-        </div>
         <div className='p-0 md:p-12'>
           <ProjectGallery/>
         </div>
-        <div className='py-5'>
-          <ContactFormular/>
+        <div className='py-20'>  
+          <Skills/>
         </div>
+        {/* <div className='py-5'>
+          <ContactFormular/>
+        </div> */}
       </div>
     </>
   )

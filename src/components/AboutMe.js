@@ -16,26 +16,20 @@ function AboutMe() {
                     <h1 className="mb-4 text-3xl font-bold">Om mig</h1>
                     <div className="p-0 md:p-4">
                         <p className="font-serif text-lg leading-relaxed first-letter">
-                            Gennem min uddannelse og karrier har jeg udviklet mine kompetencer indenfor Software arkitektur, IT-Sikkerhed, Frontend og Backend
-                            udvikling.<br/><br/>
+                            Min interesse og kompetencer ligger i IT-Sikkerhed.
+                            I IT-sikkerhed valgfaget på Datamatiker udviklede jeg en Remote Access Trojan(RAT), der udfoldede sig selv fra et billedes metadata. Jeg
+                            blev klogere på virussers udvikling gennem tiden og steganografiens rolle deri, samt
+                            hvordan forsvar- og angrebsmekanismer.<br/><br/>
 
-                            Min interesse ligger i IT-Sikkerhed.
-                            Ved IT-sikkerhed valgfaget på Datamatiker udviklede jeg en RAT, som
-                            indeholdte en backdoor, der blev udfoldet fra et billedes metadata. Jeg
-                            blev klogere på hvordan virusser/steganografi kan fungere, samt
-                            hvordan forsvar og angreb har udviklet sig gennem tiden, det fik jeg
-                            12 for.<br/><br/>
-
-                            I løbet af PBA i IT-sikkerhed har jeg arbejdet med Linux, opsætning af
+                            PBA i IT-sikkerhed arbejdede jeg med Linux, opsætning af
                             brugerrettigheder, MFA, log analyse i Suricata/ELK-SIEM,
-                            netværkstrafikanalyse i Wireshark, python programmering. Jeg har
-                            også arbejdet med statisk og dynamisk applikationsanalyse,
+                            netværkstrafikanalyse i Wireshark, python programmering, statisk/dynamisk applikationsanalyse,
                             ISO27001/27002, Sikker netværksarkitektur, og kryptering(RSA,
                             Deffie-hellmann, 3DES). <br/><br/>
 
-                            Jeg er lidt ligesom en blæksprutte forstået på den måde at jeg har
-                            armene nede i mange forskellige arbejdsområder, og jeg bestræber
-                            mig efter at gøre mit bedste. Spørger man mine lektorer så ville de
+                            Jeg vil beskrive mig som en blæksprutte forstået på den måde at jeg har
+                            en bred viden inden for forskellige arbejdsområder. Jeg bestræber
+                            mig efter at gøre mit bedste. Mine lektorer ville
                             beskrive mig som lyttende, engageret, og frisk.
                         </p>
                     </div>

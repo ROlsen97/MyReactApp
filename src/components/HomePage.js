@@ -1,17 +1,12 @@
 import React from 'react';
-import ItemList from './ItemList';
 import migImage from '../billederTilWebApp/mig.png'
 import useScrollReveal from '../hooks/useScrollReveal';
 
 
-function HomePage({followLink}){
+function HomePage(){
     const [textRef, textVisible] = useScrollReveal({ initialVisible: true, rootMargin: "-12% 0px -45% 0px" });
     const [imageRef, imageVisible] = useScrollReveal({ initialVisible: true, rootMargin: "-12% 0px -45% 0px" });
     
-    const itemsToShow = [
-        { id: 0, name: "Om denne side", info: "Denne side er mit online portfolio. Den består af HTML, CSS, Vue.js, Bootstrap, og Javascript", showInfo: false, infoToShow: "" },
-        { id: 1, name: "Kontakt", info: "ruben2010@live.dk", showInfo: false, infoToShow: "" }
-    ];
 
     return (
         <body className='py-20 bg-transparent'>    

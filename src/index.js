@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import NavigationBar from './components/Navbar';
 import HomePage from './components/HomePage';
@@ -7,28 +7,8 @@ import AboutMe from './components/AboutMe';
 import myImage from './billederTilWebApp/HjemmesideBaggrund.png'
 import Skills from './components/Skills';
 import ProjectGallery from './components/projectGallery';
-import ContactFormular from './components/ContactMe/ContactFormular';
 
 function App(){
-  const [activeSection, setActiveSection] = useState('home');
-
-    const showSection = (section) => {
-        setActiveSection(section);
-    };
-
-    useEffect(() => {
-        const hash = window.location.hash.replace('#', '');
-        if (hash === 'aboutMe') {
-            showSection('aboutMe');
-        } else if (hash === 'skills') {
-            showSection('skills');
-        } else if (hash === 'contact') {
-            showSection('contact');
-        } else {
-            showSection('home');
-        }
-    }, []);
-
   return (
     <>
       <NavigationBar/>

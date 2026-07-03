@@ -55,7 +55,7 @@ export default RAT;
         />
     </div>
 </div>
-<div className="bg-white rounded-lg shadow-lg md:w-7/12 p-7">
+<div className="bg-white rounded-lg shadow-md md:w-7/12 p-7">
     <h1 className="mb-4 text-3xl font-bold">Remote Access Trojans Projekt</h1>
     <div className="p-4">
         <p className="font-serif text-lg leading-relaxed first-letter">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ProjectText from "../components/ui-components/ProjectText";
 import SideImages from "../components/ui-components/sideImages";
 import kalipng from "../billederTilWebApp/KaliLinux.png";
@@ -13,6 +13,13 @@ import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
+
+const getSlideWidth = () => {
+  if (typeof window === "undefined") return 100;
+  if (window.innerWidth >= 1280) return 78;
+  if (window.innerWidth >= 768) return 86;
+  return 100;
+};
 
 const projects = [
   {
@@ -64,141 +71,183 @@ Retrofit anvendtes til at hente data og API-kald, mens live data anvendtes til a
 ];
 
 function ProjectGallery() {
-  // slides med kloner
-  const slides = [projects[projects.length - 1], ...projects, projects[0]];
+  const [slideWidth, setSlideWidth] = useState(getSlideWidth);
+  const cloneCount = 1;
+  const slides = useMemo(
+    () => [projects[projects.length - 1], ...projects, projects[0]],
+    []
+  );
 
-  const [curr, setCurr] = useState(1);
+  const [curr, setCurr] = useState(cloneCount);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSlideWidth(getSlideWidth());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const next = () => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
     setIsAnimating(true);
     setCurr((c) => c + 1);
   };
 
   const prev = () => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
     setIsAnimating(true);
     setCurr((c) => c - 1);
   };
 
-  const handleTransitionEnd = () => {
-    if (curr === 0) {
+  const handleTransitionEnd = (event) => {
+    if (event.target !== event.currentTarget) return;
+
+    if (curr < cloneCount) {
       setIsAnimating(false);
-      setCurr(slides.length - 2);
-    } else if (curr === slides.length - 1) {
+      setCurr(curr + projects.length);
+    } else if (curr >= cloneCount + projects.length) {
       setIsAnimating(false);
-      setCurr(1);
+      setCurr(curr - projects.length);
+    } else {
+      setIsTransitioning(false);
     }
   };
-  // infinite reset uden hop
+
   useEffect(() => {
-    const duration = 500;
-    let timer;
     if (!isAnimating) {
-      requestAnimationFrame(() => {
-        setIsAnimating(true);
+      const animationFrame = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsAnimating(true);
+          setIsTransitioning(false);
+        });
       });
+
+      return () => cancelAnimationFrame(animationFrame);
     }
-    if (curr === slides.length - 1) {
-      timer = setTimeout(() => {
-        setIsAnimating(false);
-        setCurr(1);
+  }, [isAnimating]);
 
-        // Vent til næste render-cycle
-        setTimeout(() => {
-          setIsAnimating(true);
-        }, 0);
-      }, duration);
-    }
-
-    if (curr === 0) {
-      timer = setTimeout(() => {
-        setIsAnimating(false);
-        setCurr(slides.length - 2);
-
-        setTimeout(() => {
-          setIsAnimating(true);
-        }, 0);
-      }, duration);
-    }
-
-    return () => clearTimeout(timer);
-  }, [curr, slides.length, isAnimating]);
-
-  // korrekt dot-index (uden kloner)
   const realIndex =
-    curr === 0
-      ? projects.length - 1
-      : curr === slides.length - 1
-        ? 0
-        : curr - 1;
+    (curr - cloneCount + projects.length) % projects.length;
+
+  const goToProject = (index) => {
+    if (isTransitioning || index === realIndex) return;
+
+    setIsTransitioning(true);
+    setIsAnimating(true);
+    setCurr(index + cloneCount);
+  };
 
   return (
     <section className="p-0 md:p-5" id="projects">
       <h3 className="flex justify-center text-white mb-4 font-bold">Builds</h3>
 
-      <div className="relative overflow-hidden w-full">
-        {/* TRACK */}
+      <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-8 md:py-10">
         <div
           onTransitionEnd={handleTransitionEnd}
           className={`flex ${
             isAnimating ? "transition-transform duration-500 ease-out" : ""
           }`}
-          style={{ transform: `translateX(-${curr * 100}%)` }}
+          style={{
+            transform: `translateX(calc(50% - ${
+              curr * slideWidth + slideWidth / 2
+            }%))`,
+          }}
         >
-          {slides.map((project, i) => (
-            <div
-              key={`${project.title}-${i}`}
-              className="w-full flex-shrink-0 px-4"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                <div className="md:col-span-7">
-                  <ProjectText
-                    title={project.title}
-                    paragraphs={project.paragraphs}
-                  />
-                </div>
-                <div className="md:col-span-5 flex justify-center">
-                  <SideImages
-                    image1={project.images[0]}
-                    alt1={project.title}
-                    image2={project.images[1]}
-                    alt2={project.title}
-                  />
+          {slides.map((project, i) => {
+            const isActive = i === curr;
+
+            return (
+              <div
+                key={`${project.title}-${i}`}
+                className="flex-shrink-0 px-6 py-2 md:px-8 md:py-4"
+                style={{
+                  flexBasis: `${slideWidth}%`,
+                  maxWidth: `${slideWidth}%`,
+                }}
+              >
+                <div
+                  className={`grid grid-cols-1 gap-6 items-center md:grid-cols-12 ${
+                    isAnimating ? "transition-all duration-500" : ""
+                  } ${
+                    isActive
+                      ? "relative z-10 opacity-100 blur-0 scale-100"
+                      : "relative z-0 opacity-35 blur-[3px] scale-95"
+                  }`}
+                >
+                  <div className="md:col-span-7">
+                    <ProjectText
+                      title={project.title}
+                      paragraphs={project.paragraphs}
+                    />
+                  </div>
+                  <div className="flex justify-center md:col-span-5">
+                    <SideImages
+                      image1={project.images[0]}
+                      alt1={project.title}
+                      image2={project.images[1]}
+                      alt2={project.title}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* PILE */}
-        <button
-          onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20
-                     bg-slate-900/60 backdrop-blur-md text-white
-                     rounded-full w-10 h-10 flex items-center justify-center
-                     hover:bg-slate-900/80 transition"
-        >
-          <MdOutlineKeyboardArrowLeft size={24} />
-        </button>
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-full">
+          <button
+            onClick={prev}
+            style={
+              slideWidth === 100
+                ? { left: "0.5rem", transform: "translateY(-50%)" }
+                : {
+                    left: `calc(50% - ${slideWidth / 2}% - 0.75rem)`,
+                    transform: "translate(-100%, -50%)",
+                  }
+            }
+            className="pointer-events-auto absolute top-1/2
+                       bg-slate-900/60 backdrop-blur-md text-white
+                       rounded-full w-10 h-10 flex items-center justify-center
+                       hover:bg-slate-900/80 transition"
+          >
+            <MdOutlineKeyboardArrowLeft size={24} />
+          </button>
 
-        <button
-          onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20
-                     bg-slate-900/60 backdrop-blur-md text-white
-                     rounded-full w-10 h-10 flex items-center justify-center
-                     hover:bg-slate-900/80 transition"
-        >
-          <MdOutlineKeyboardArrowRight size={24} />
-        </button>
+          <button
+            onClick={next}
+            style={
+              slideWidth === 100
+                ? { right: "0.5rem", transform: "translateY(-50%)" }
+                : {
+                    left: `calc(50% + ${slideWidth / 2}% + 0.75rem)`,
+                    transform: "translateY(-50%)",
+                  }
+            }
+            className="pointer-events-auto absolute top-1/2
+                       bg-slate-900/60 backdrop-blur-md text-white
+                       rounded-full w-10 h-10 flex items-center justify-center
+                       hover:bg-slate-900/80 transition"
+          >
+            <MdOutlineKeyboardArrowRight size={24} />
+          </button>
+        </div>
 
-        {/* DOTS */}
-        <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
+        <div className="absolute bottom-3 left-0 right-0 z-20 flex justify-center gap-2">
           {projects.map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurr(i + 1)}
-              className={`h-2 rounded-full transition-all ${
-                realIndex === i ? "w-6 bg-white" : "w-2 bg-white/50"
+              onClick={() => goToProject(i)}
+              className={`h-2 rounded-full transition-all hover:bg-slate-700/60 ${
+                realIndex === i ? "w-6 bg-slate-700/75" : "w-2 bg-slate-700/35"
               }`}
             />
           ))}

@@ -1,14 +1,14 @@
 import React from 'react';
 //import './ProjectText.css'; // Importer CSS-filen
 
-function ProjectText({ title, paragraphs }) {
+function ProjectText({ title, paragraphs, compact = false }) {
     return (
-        <div className="w-full p-0 bg-white rounded-lg shadow-lg sm:p-10 md:h-full md:overflow-auto overflow-visible">
-            <h1 className="p-3 mb-4 text-3xl font-bold">{title}</h1>
-            <div className="p-4">
-                <div className="gap-2 columns-1 md:columns-2">
+        <div className={`w-full bg-white rounded-lg shadow-md md:h-full md:overflow-auto overflow-visible ${compact ? 'p-5' : 'p-0 sm:p-10'}`}>
+            <h1 className={`${compact ? 'mb-3 text-2xl' : 'p-3 mb-4 text-3xl'} font-bold`}>{title}</h1>
+            <div className={compact ? 'p-0' : 'p-4'}>
+                <div className={`gap-2 columns-1 ${compact ? '' : 'md:columns-2'}`}>
                     {paragraphs.map((paragraph, index) => (
-                        <p key={index} className={`font-serif text-lg leading-relaxed mb-4 ${index === 0 ? 'first-letter' : ''}`}>
+                        <p key={index} className={`font-serif leading-relaxed mb-4 ${compact ? 'text-sm' : 'text-lg'} ${index === 0 && !compact ? 'first-letter' : ''}`}>
                             {paragraph}
                         </p>
                     ))}

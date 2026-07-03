@@ -11,7 +11,7 @@ function ReactAndTypeScript() {
                         alt="React and TypeScript Project"
                     />
                 </div>
-                <div className="md:w-7/12 p-7 bg-white shadow-lg rounded-lg">
+                <div className="md:w-7/12 p-7 bg-white shadow-md rounded-lg">
                     <h1 className="text-3xl font-bold mb-4">React og TypeScript Projekt</h1>
                     <div className="p-4">
                         <p className="text-lg font-serif leading-relaxed">
